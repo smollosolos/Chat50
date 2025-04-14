@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<script>
+
+async function load_messages(){
+    let response = await fetch('/load');
+    let messages = await response.text();
+    document.querySelector('main').innerHTML = messages;
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+    load_messages();
+    setInterval(load_messages, 2000);
+});
+
+</script>
+<main> </main>
+
+<section>
+    <form method="post">
+        <input name="message" type="text"></input>
+        <input type="submit" value="Send"></input>
+        <button type="submit" formmethod = "get" formaction="/">Quit</button>
+     </form>
+</section>
+{% endblock %}

@@ -1,0 +1,18 @@
+
+<h5>Chat Room : {{code}}</h5>
+{% for message in data %}
+    {%if message.messenger == client%}
+    <aside>
+            <h3>{{message.username}}</h3>
+            <p>{{message.message}}</p>
+            <small>{{message.date}}</small>
+    </aside>
+    {% endif %}
+    {%if message.messenger != client%}
+    <aside>
+            <h3>{{message.username}} (you)</h3>
+            <p>{{message.message}}</p>
+            <small>{{message.date}}</small>
+    </aside>
+    {% endif %}
+{% endfor %}

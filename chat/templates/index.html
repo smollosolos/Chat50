@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<section>
+    <h1>{{message}}</h1>
+</section>
+<section>
+    <form method = "get">
+        <input name="username" type="text" placeholder = "Enter an username"> </input>
+        <button type="submit" formaction="/chat"> Host Chat</button>
+        <button type="submit" formaction="/search">Search for Chats</button>
+        <button type="submit" formaction="/join">Join Chat by Code</button>
+    </form>
+</section>
+{% endblock %}
